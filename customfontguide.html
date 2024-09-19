@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wise Ape</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!--Maven Pro-->
+<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
+
+<!--Teko-->
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap" rel="stylesheet">
+
+<!--Unlock-->
+<link href="https://fonts.googleapis.com/css2?family=Unlock&display=swap" rel="stylesheet">
+
+<!-- Josefin Sans-->
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+<!--Satisfy-->
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+
+<!--Architects Daughter-->
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+
+<!--Handlee-->
+<link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+
+<!--Ubuntu-->
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+<!--Google Sense-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5852567347842734"
+     crossorigin="anonymous"></script>
+<!--Propellerads-->
+<script src="https://my.rtmark.net/p.js?f=sync&lr=1&partner=24183cdb3e42070eeaa4ab32a0ee0c16e3e14e2690dcd8efc317a6e69ec658e4" defer></script>
+<noscript><img src="https://my.rtmark.net/img.gif?f=sync&lr=1&partner=24183cdb3e42070eeaa4ab32a0ee0c16e3e14e2690dcd8efc317a6e69ec658e4" width="1" height="1" /></noscript>
+
+<style>
+
+*{margin: 0; padding: 0;}
+
+:root {
+        --primary: rgb(255, 255, 255);
+        --primary2: rgb(52, 154, 187);
+        --primary3: rgb(225, 134, 98);
+    }
+
+body{background-color: rgb(230, 230, 230); width: 100vw;
+    }
+
+#topmenu{height: 54px; background-color: rgb(50, 50, 50); margin: 0; padding: 0; width: 100vw;
+    border: 0px solid white; position: relative; 
+    border-bottom: 0px solid rgb(63, 245, 206, 1); display: flex;}
+
+#logo{height: 38px; margin-left: 0px; position: absolute; top: 6px; left: -62px; border: 0px solid red;
+        fill: var(--primary)}
+
+#wiseapetext{font-family: handlee; color: rgb(190, 190, 190); font-size: 28px; font-weight: 100;
+    margin-left: 15px; padding-top: 10px; transition: color 0.6s;}
+
+#wiseapetext:hover{cursor: pointer; color: white}
+
+#title {font-family: maven pro; font-size: 40px; margin: 0 auto;
+    width: fit-content; padding-bottom: 20px; margin-top: 10px;}
+
+#topmenu-right{position: absolute; display: flex; right: 0;
+        height: 100%; border: 0px solid red;}
+
+/* Session */
+#sessiontype{display: flex; color: rgb(190, 190, 190); fill: rgb(190, 190, 190); padding-top: 14px; 
+                 }
+
+#sessionarrow{margin: 2px 8px 0 0; transition: fill 0.6s;}
+#sessionbutton
+    {color: rgb(190, 190, 190); cursor: pointer; font-size: 20px;
+    margin: 0 10px; transition: color 0.5s, fill 0.5s;}
+
+#sessionbutton:hover
+    {color: rgb(85, 236, 203); fill: rgb(85, 236, 203); cursor: pointer;}
+
+    /* Hover effect: change both to blue */
+    #sessiontype:hover #sessionbutton {
+        color: white;
+    }
+
+    #sessiontype:hover #sessionarrow {
+        fill: white;
+    }
+
+    #profilebutton
+    {color: rgb(190, 190, 190); fill: rgb(190, 190, 190); cursor: pointer; font-size: 19px;
+    margin: 10px 24px;  transition: color 0.5s, fill 0.5s;}
+
+#profilebutton:hover
+    {color: rgb(255, 255, 255); fill: rgb(255, 255, 255); cursor: pointer;}
+
+#dropdown{display: none; position: absolute; top: 100%; 
+            left: 0; background-color: rgb(50, 50, 50); border: 1px solid rgb(80, 80, 80); padding: 5px;
+            width: 180px; font-size: 18px;}
+
+#dropdown:hover{}
+.sessionbutton{cursor: pointer; padding: 10px; }
+#link1, #link2{border-bottom: 1px solid rgb(100, 100, 100);}
+#link1:hover, #link2:hover, #link3:hover {color: white}
+
+
+
+
+
+
+#pagemacro{margin: 30px 50px 100px 35px; font-size: 18px;}
+#pagetitle {font-size: 36px; text-align: center; font-family: ubuntu; margin-bottom: 10px;}
+#pagesubtitle {font-size: 22px; text-align: center; 
+        font-family: ubuntu; margin-bottom: 5px; font-weight: bold; }
+.inpagesubtitle {font-size: 22px; text-align: center; 
+font-family: ubuntu; margin-top: 50px; margin-bottom: 20px; font-weight: bold; }
+
+.sectiontitle{margin: 10px 0; font-size: 25px; font-family: ubuntu; font-weight: 500;}
+.sectionsubtitle{font-size: 18px; opacity: 0.9;}
+.section{margin: 40px 0; font-family: ubuntu;}
+
+.see-projects{opacity: 0.4; margin-top: 12px;}
+.project-text{margin-top: 10px; color: rgb(11, 112, 189); margin-left: 25px;}
+.project-title{margin: 20px 0px 10px 0px; text-decoration: underline; font-size: 20px; font-weight: bold;}
+
+
+.paragraph{max-width: 800px; margin: 25px 0px; border: 0px solid gray; margin: 0 auto;}
+
+.paratext{margin: 10px 5px; line-height: 1.8;}
+
+
+.code-block {
+      white-space: pre-wrap; /* Preserve formatting */
+      font-family: monospace; /* Monospace font for code */
+      background-color: rgb(150, 180, 150);
+      color: rgb(0, 0, 0);
+      padding: 10px;
+      border: 1px solid rgb(50, 50, 50);
+      max-width: 680px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+
+.bold{font-weight: bold;}
+    </style>
+</head>
+<body>
+
+    
+    <div id="topmenu"> 
+        <p id="wiseapetext">Wise Ape</p>
+    
+    
+        <div id="topmenu-right" style="">
+        
+        <div id="sessiontype" style="border: 1px solid rgb(255, 255, 255, 0);"> 
+        <div id="sessionbutton">Student</div>
+        
+            <svg xmlns="http://www.w3.org/2000/svg" id="sessionarrow" width="18" height="18" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+              </svg>
+              
+        
+              <!--dropdown-->
+              <div id="dropdown" style="">
+                <div id="link1" class="sessionbutton" style="">Teacher</div>
+                <div id="link2" class="sessionbutton" style="">Explore</div>
+                <div id="link3" class="sessionbutton">About Us</div>
+            </div>
+    
+        </div>
+    
+    
+        <svg xmlns="http://www.w3.org/2000/svg" id="profilebutton" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+          </svg>
+    
+    <!-- 
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" id="hamburgericon" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+          </svg>
+        -->
+    
+        </div>
+    
+    </div>
+
+
+
+
+
+
+
+<div id="pagemacro"> 
+
+<div id="pagesubtitle">The Definitive Guide to: </div>
+<div id="pagetitle">Custom Fonts</div>
+
+<div style="height: 10px;"></div>
+
+<div class="paragraph">
+    <p class="paratext"> 
+    Fonts are essential for shaping the overall look and feel of a website. 
+    While web-safe fonts (like Arial, Times New Roman, and Verdana) are reliable and easy to use, 
+    they may not be the best fit for your website.
+
+    Sometimes custom fonts are necessary to give your website a unique personality and help 
+    convey your message. Using custom fonts can really make your website standout and take your 
+    design to the next level.
+</p>
+</div>
+
+
+<div class="inpagesubtitle">Custom Font Libaries</div>
+
+<div class="paragraph">
+    <p class="paratext"> 
+        There are many free, open-source fonts available that provide flexibility and variety without 
+        the need to purchase licenses. Below are some of the most popular font libraries:
+        
+</p>
+</div>
+
+
+
+
+
+<div class="paragraph">
+    <p class="paratext"> 
+
+<li class="paratext" style="margin-left: 35px;">
+    <span class="bold">Google Fonts:  </span>The most widely used source for free web fonts, Google Fonts offers over 1,400 open-source font families in a wide variety of styles. The fonts are easy to integrate with just a line of HTML or CSS.</li>
+<div style="height: 10px;"></div>
+<li class="paratext" style="margin-left: 35px;">
+    <span class="bold">Font Library:  </span>Another repository of open-source fonts, Font Library offers fonts for free download and web use. All fonts in the library are licensed for public use.</li>
+<div style="height: 10px;"></div>
+<li class="paratext" style="margin-left: 35px;">
+    <span class="bold">Adobe Fonts (formerly Typekit): </span>While part of the Adobe Creative Cloud, Adobe Fonts also offers many free fonts with open-source licensing.</li>
+<div style="height: 10px;"></div>
+<li class="paratext" style="margin-left: 35px;"> 
+    <span class="bold">The League of Moveable Type: </span> This smaller, curated collection of high-quality open-source fonts is focused on offering elegant typography options for designers. </li>
+        
+</p>
+</div>
+
+
+
+
+<!-- Google Fonts-->
+
+<div class="inpagesubtitle">Using Custom Fonts (Embedding)</div>
+
+<div class="paragraph">
+    <p class="paratext"> 
+        The quickest and easiest way to load custom fonts in a website is to embed them into your site.
+        Google Fonts is the most popular free option for embedding custom fonts. Here's how to add a Google Font to your HTML page:
+        <p class="paratext" style="margin-left: 35px;">1. Visit Google Fonts: Go to the Google Fonts website.</p>
+        <p class="paratext" style="margin-left: 35px;">2. Choose a Font: Browse the collection, and when you find a font you like, click the "+" button to select it. </p>
+        <p class="paratext" style="margin-left: 35px;">3. Get the Embed Code: Once selected, click the "View Selected Families" button, and you'll get a <span><</span>link<span>></span> tag to include in your HTML. </p>
+        
+        
+        <p class="paratext" style="margin-left: 35px;">4. Copy the Link and place this code inside the <span><</span>head<span>></span> section of your HTML file.</p>
+        </p>
+<div id="code1" class="code-block"></div>
+
+<p class="paratext" style="margin-left: 50px;">5. Include your font in your css.</p>
+</p>
+<div id="code2" class="code-block"></div>
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Google Fonts-->
+
+<div class="inpagesubtitle">Using Custom Fonts (Self-Hosting)</div>
+
+<div class="paragraph">
+    <p class="paratext"> 
+        If you want more control or prefer not to rely on third-party services, you can self-host 
+        fonts by downloading them and serving them from your own web server.
+
+        <p class="paratext" style="margin-left: 35px;">1. Download the Font Files: You can download font files 
+            (e.g., .ttf, .woff, .woff2) from repositories like Font Library or Google Fonts.</p>
+
+        <p class="paratext" style="margin-left: 35px;">2. Convert to Web Format: If needed, use a tool like Font Squirrel to 
+            convert the fonts to web-friendly formats like .woff2. </p>
+
+        <p class="paratext" style="margin-left: 35px;">3. Upload to Your Server: Place the font files in a folder on your 
+            website (e.g., /fonts/). </p>
+
+        <p class="paratext" style="margin-left: 35px;">4. Link in CSS: Use the @font-face rule in your CSS to load the 
+            fonts from your server:</p>
+</p>
+
+<div id="code3" class="code-block"></div>
+</div>
+
+
+
+
+
+
+
+<!-- Conclusion-->
+<div class="inpagesubtitle">Conclusion</div>
+
+<div class="paragraph">
+    <p class="paratext"> 
+        Custom HTML fonts are a powerful tool to enhance your website's design and user experience. 
+        With free, open-source options like Google Fonts, and the ability to self-host for more control, 
+        incorporating unique typography into your web design is both easy and flexible. 
+        By following best practices and limiting unnecessary font loads, you can ensure your site looks 
+        great without sacrificing performance.
+    </p>
+    <p class="paratext">   Choosing the right fonts for your site can help create a visually appealing and professional 
+            design, improving the overall user experience and keeping visitors engaged.
+    </p> 
+        
+</p>
+</div>
+
+
+
+</div>
+</div>
+
+
+<div style="height: 22px; width: 260px; margin: 0 auto; color: gray; margin-bottom: 8px;
+display: flex; align-items: center;">
+    <svg style="margin-left: 2px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" id="copyright" viewBox="0 0 16 16">
+    <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.146 4.992c-1.212 0-1.927.92-1.927 2.502v1.06c0 1.571.703 2.462 1.927 2.462.979 0 1.641-.586 1.729-1.418h1.295v.093c-.1 1.448-1.354 2.467-3.03 2.467-2.091 0-3.269-1.336-3.269-3.603V7.482c0-2.261 1.201-3.638 3.27-3.638 1.681 0 2.935 1.054 3.029 2.572v.088H9.875c-.088-.879-.768-1.512-1.729-1.512"/>
+    </svg>
+
+<span style="margin-left: 5px;"> 2024 Wise Ape. All rights reserved. </span>
+</div>
+
+
+<script>
+    // Wise Ape Text
+        // Add event listener to #logo
+        document.getElementById('wiseapetext').addEventListener('click', function() {
+            // Navigate to index.html
+            window.location.href = 'index.html';
+        });
+
+    // DROPDOWN
+    const sessionButton = document.getElementById('sessiontype');
+        const dropdown = document.getElementById('dropdown');
+
+        sessionButton.addEventListener('click', () => {
+            // Use getComputedStyle to check the current display value
+            const currentDisplay = window.getComputedStyle(dropdown).display;
+
+            if (currentDisplay === 'none') {
+                dropdown.style.display = 'block';
+            } else {
+                dropdown.style.display = 'none';
+            }
+        });
+
+        // Example event listeners for the clickable divs
+        document.getElementById('link1').addEventListener('click', () => {
+            alert('This page is currently unavailable.');
+        });
+
+        document.getElementById('link2').addEventListener('click', () => {
+            alert('This page is currently unavailable.');
+        });
+
+        document.getElementById('link3').addEventListener('click', () => {
+            alert('This page is currently unavailable.');
+        });
+
+
+    
+
+
+    // TILE CLICK LOGIC
+
+
+    // Get all divs with the class 'contenttile'
+    const contentTiles = document.querySelectorAll('.contenttile');
+
+    // Loop through each contenttile div and add a click event listener
+    contentTiles.forEach(tile => {
+        tile.addEventListener('click', (event) => {
+            // Prevent any default behavior
+            event.preventDefault();
+            
+            // Get the URL from the data-url attribute
+            const targetUrl = tile.getAttribute('data-url');
+            
+            // Redirect to the relative URL
+            window.location.href = targetUrl;
+        });
+    });
+
+
+
+// CODE 1
+const code1 = 
+`<head>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>`;
+
+// Insert the code as plain text into the div
+document.getElementById('code1').textContent = code1;
+
+// CODE 2
+const code2 = 
+`body {
+    font-family: 'Roboto', sans-serif;
+}`;
+
+// Insert the code as plain text into the div
+document.getElementById('code2').textContent = code2;
+
+
+// CODE 2
+const code3 = 
+`@font-face {
+    font-family: 'CustomFont';
+    src: url('/fonts/CustomFont.woff2') format('woff2'),
+         url('/fonts/CustomFont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'CustomFont', sans-serif;
+}
+`;
+
+// Insert the code as plain text into the div
+document.getElementById('code3').textContent = code3;
+
+</script>
+</body>
+</html>
