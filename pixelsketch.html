@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Sketch</title>
+    <link rel="icon" href="a0/favicon.png" type="image/png">
+    <!--Google Sense-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5852567347842734"
+crossorigin="anonymous"></script>
+
+<!--Propellerads-->
+<script src="https://my.rtmark.net/p.js?f=sync&lr=1&partner=24183cdb3e42070eeaa4ab32a0ee0c16e3e14e2690dcd8efc317a6e69ec658e4" defer></script>
+<noscript><img src="https://my.rtmark.net/img.gif?f=sync&lr=1&partner=24183cdb3e42070eeaa4ab32a0ee0c16e3e14e2690dcd8efc317a6e69ec658e4" width="1" height="1" /></noscript>
+
+
+    <style>
+        /* Ensure the page div fits within the window's dimensions */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            background-color: rgb(200, 200, 200);
+            
+        }
+
+        #macro{display: flex;
+            margin: 0;
+            padding: 0;
+            max-height: fit-content;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            background: radial-gradient(circle at center, #ffffff, #d3d2d2, #4682b4, #6a5acd);
+            background-attachment: fixed;  /* Keeps the gradient fixed while scrolling */
+   }
+
+        /* Main container to hold the title, grid, and tools */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: fit-content;
+            height: fit-content;
+            width: 450px;
+            max-width: 100vw;
+            max-height: calc(100vh - 10px); /* Adjusted to fit within the viewport */
+            padding: 10px;
+            box-sizing: border-box;
+            border: 0px solid black;
+            position: relative;
+            padding-top: 0px;
+            margin-top: 0;
+        }
+
+        /* Basic grid styling */
+        .grid {
+            display: grid;
+            width: 100%;
+            height: 100%;
+            max-width: 500px;
+            max-height: 500px;
+            grid-template-columns: repeat(15, 1fr); /* Default 15 columns */
+            grid-template-rows: repeat(15, 1fr);    /* Default 15 rows */
+            gap: 0px;
+            border: 1px solid black;
+        }
+
+        .grid-block {
+            background-color: white; /* Default background color */
+            border: 1px solid rgba(128, 128, 128, 0.4); /* Gray border with 0.4 opacity */
+            aspect-ratio: 1; /* Ensures blocks are squares */
+
+        }
+
+        /* Popup modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid #000;
+            z-index: 1000;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        /* Style for the control panel */
+        .controls {
+            margin-top: 15px;
+        }
+
+        h2{margin-top: 5px; 
+            font-family: 'Lumanari', fantasy;}
+
+        @keyframes strobe {
+    0% {
+        border-color: black;
+        opacity: 1;
+    }
+    60% {
+        border-color: black;
+        opacity: 1;
+    }
+    100% {
+        border-color: white;
+        opacity: 1;
+    }
+}
+
+.grid-block:hover {
+    animation: strobe 0.8s infinite; /* Adjust duration as needed */
+}
+
+
+/* File Dropdown*/
+/* Style the dropdown container */
+.filedd {
+    position: relative;
+    display: inline-block;
+    padding: 0 5px 0 0;
+}
+
+/* Style the dropdown button */
+.filedd-button {
+    background-color: rgb(128, 128, 128); /* Green */
+    color: white;
+    padding: 8px 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The dropdown content (hidden by default) */
+.filedd-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.filedd-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.filedd-content a:hover {
+    background-color: #f1f1f1; cursor: pointer;
+}
+
+/* Show the dropdown menu on hover */
+.filedd:hover .filedd-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when hovered */
+.filedd:hover .filedd-button {
+    background-color: rgb(60, 60, 60);
+}
+
+
+#optionsbar, #colorbar {width: 100%;
+    display: flex;
+    align-items: flex-start;  /* Align items to the top/left vertically */
+    justify-content: flex-start; /* Align items to the left horizontally */
+    border: 1px solid black;
+    background-color: gray;
+}
+
+#colorbar{height: 120px; background-color: rgb(200, 200, 200);}
+
+.color{border: 1px solid rgb(0, 0, 0); padding: 2px; margin: 2px; width: 28px; height: 28px; background-color: white;}
+#blackinside{background-color: black; width: 100%; height: 100%;}
+#whiteinside{background-color: rgb(255, 255, 255); border: 1px solid black; width: 100%; height: 100%; padding: 4%;}
+#grayinside{background-color: gray; width: 100%; height: 100%; border: 1px solid black; width: 100%; height: 100%;}
+#blueinside{background-color: blue; width: 100%; height: 100%; border: 1px solid black; width: 100%; height: 100%;}
+#redinside{background-color: red; border: 1px solid black; width: 100%; height: 100%;}
+#greeninside{background-color: green; border: 1px solid black; width: 100%; height: 100%;}
+#yellowinside{background-color: yellow; width: 100%; height: 100%; border: 1px solid black;}
+#purpleinside{background-color: purple; width: 100%; height: 100%; border: 1px solid black;}
+#aquainside{background-color: aqua; width: 100%; height: 100%; border: 1px solid black;}
+#orangeinside{background-color: orange; width: 100%; height: 100%; border: 1px solid black;}
+#violetinside{background-color: violet; width: 100%; height: 100%; border: 1px solid black;}
+#taninside{background-color: tan; width: 100%; height: 100%; border: 1px solid black; }
+#browninside{background-color: brown; width: 100%; height: 100%; border: 1px solid black; }
+#limegreeninside{background-color: limegreen; width: 100%; height: 100%; border: 1px solid black; }
+#lightblueinside{background-color: lightblue; width: 100%; height: 100%; border: 1px solid black; }
+#goldinside{background-color: gold; width: 100%; height: 100%; border: 1px solid black; }
+#navyinside{background-color: navy; width: 100%; height: 100%; border: 1px solid black; }
+#darkcyaninside{background-color: darkcyan; width: 100%; height: 100%; border: 1px solid black; }
+
+
+
+/* Basic styling for the popups */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+#undo, #redo {height: 35px; width: 35px;  border-radius: 5px;
+            background-color: rgb(255, 255, 255); fill: rgb(0, 0, 0); 
+            margin: 10px 1px; padding: 6px 0; }
+
+#colorPicker{height: 45px; width: 70px; border: 1px solid rgb(180, 180, 180); 
+            background-color: white; padding: 2px 2px; border-radius: 4px;}
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+<div id="hat"></div>
+
+
+<div id="macro"> 
+<div class="container">
+    <h2>Pixel Sketch</h2>
+
+
+<div id="optionsbar"> 
+      <div class="filedd">
+        <button class="filedd-button">
+            <!-- 
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-file-image" viewBox="0 0 16 16">
+                <path d="M8.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v8l-2.083-2.083a.5.5 0 0 0-.76.063L8 11 5.835 9.7a.5.5 0 0 0-.611.076L3 12z"/>
+              </svg> 
+              -->
+              File
+
+        </button>
+        <div class="filedd-content">
+            <a id="newProject">New Project</a>
+            <a id="clearGrid">Clear Grid</a>
+            <a id="saveImage">Save as Image</a>
+            <a id="copyImage">Copy Image</a>
+            <a id="savecode">Save Image Code</a>
+        </div>
+    </div>
+
+<div>
+    <div class="filedd">
+        <button class="filedd-button">
+            <!-- 
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-file-image" viewBox="0 0 16 16">
+                <path d="M8.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v8l-2.083-2.083a.5.5 0 0 0-.76.063L8 11 5.835 9.7a.5.5 0 0 0-.611.076L3 12z"/>
+              </svg> 
+            -->
+            Samples
+
+        </button>
+        <div class="filedd-content">
+            <a id="duck">Duck</a>
+            <a id="flower">Flower</a>
+            <a id="penguin">Penguin</a>
+            <a id="heart">Heart</a>
+            <a id="dog">Dog</a>
+            <a id="pizza">Pizza</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div>
+    <div class="filedd">
+        
+        <button class="filedd-button">
+        <!--
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-file-image" viewBox="0 0 16 16">
+                <path d="M8.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v8l-2.083-2.083a.5.5 0 0 0-.76.063L8 11 5.835 9.7a.5.5 0 0 0-.611.076L3 12z"/>
+              </svg> 
+        -->
+        Upload
+
+        </button>
+        <div class="filedd-content">
+            <a id="uploadImage">Upload Image File</a>
+            <a id="opencode">Upload Image Code</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="filedd">
+    <button class="filedd-button">
+        <!-- 
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-file-image" viewBox="0 0 16 16">
+            <path d="M8.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+            <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v8l-2.083-2.083a.5.5 0 0 0-.76.063L8 11 5.835 9.7a.5.5 0 0 0-.611.076L3 12z"/>
+          </svg> 
+        -->
+        Options
+
+    </button>
+    <div class="filedd-content">
+        <a id="grayborder">Gray Borders</a>
+        <a id="whiteborder">White Borders</a>
+        <a id="noborders">No Borders</a>
+    </div>
+</div>
+
+
+
+
+
+
+</div> <!--End Optionsbar-->
+
+<!--Dynamic Grid-->
+<div class="grid" id="grid"></div>
+
+
+
+<!-- Colorbar-->
+<div id="colorbar" style="display: block;"> 
+        <div class="controls" style="display: flex; height: 80px;">
+
+<div style="border: 1px solid black; border-radius: 4px; margin: 0 10px; display: block; padding: 0 0px; width: 70px; height: 45px;"> 
+    
+    <input type="color" id="colorPicker" value="#000000">
+
+
+
+
+<!--Undo / Redo-->
+<div style="display: flex;">
+    <button id="undo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
+        <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>
+      </svg>
+    </button>
+    
+    <button id="redo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+        <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+      </svg>
+    </button>
+    </div>
+
+
+</div>  
+
+
+
+
+
+<div style="width: 10px"></div>
+
+<div style="width: 260px; "> 
+<div style="display: flex; border: 0px solid red;"> 
+<div id="black" class="color"><div id="blackinside"></div></div>
+<div id="white" class="color"><div id="whiteinside"></div></div>
+<div id="gray" class="color"><div id="grayinside"></div></div>
+<div id="blue" class="color"><div id="blueinside"></div></div>
+<div id="red" class="color"><div id="redinside"></div></div>
+<div id="green" class="color"><div id="greeninside"></div></div>
+</div>
+
+<div style="display: flex; border: 0px solid red;"> 
+<div id="yellow" class="color"><div id="yellowinside"></div></div>
+<div id="purple" class="color"><div id="purpleinside"></div></div>
+<div id="aqua" class="color"><div id="aquainside"></div></div>
+<div id="orange" class="color"><div id="orangeinside"></div></div>
+<div id="violet" class="color"><div id="violetinside"></div></div>
+<div id="tan" class="color"><div id="taninside"></div></div>
+</div>
+
+<div style="display: flex; border: 0px solid red;"> 
+<div id="brown" class="color"><div id="browninside"></div></div>
+<div id="limegreen" class="color"><div id="limegreeninside"></div></div>
+<div id="lightblue" class="color"><div id="lightblueinside"></div></div>
+<div id="gold" class="color"><div id="goldinside"></div></div>
+<div id="navy" class="color"><div id="navyinside"></div></div>
+<div id="darkcyan" class="color"><div id="darkcyaninside"></div></div>
+</div>
+</div>
+
+</div> <!--End Colorbar-->
+
+
+
+
+</div>
+
+
+<!-- HIDDEN -->
+<div style="display: none;">
+                <input type="file" id="imageInput" accept="image/*" style="display:none;">
+                <label for="borderPicker">Border: </label>
+                <select id="borderPicker">
+                    <option value="black">Black</option>
+                    <option value="gray" selected>Gray</option>
+                    <option value="white">White</option>
+                    <option value="none">None</option>
+                </select>
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+<!-- Popup for new project -->
+<div class="modal-overlay" id="modalOverlay"></div>
+<div class="modal" id="newProjectModal">
+        <h3>New Project</h3>
+        <label for="gridSize">Select Grid Size: </label>
+        <select id="gridSize">
+            <!-- Manually adding options for sizes 5x5 to 25x25 -->
+            <option value="5">5x5</option>
+            <option value="10">10x10</option>
+            <option value="15" selected>15x15</option>
+            <option value="19">19x19</option>
+            <option value="25">20x20</option>
+            <option value="25">25x25</option>
+            <option value="30">30x30</option>
+            <option value="35">35x35</option>
+            <option value="40">40x40</option>
+            <option value="45">45x45</option>
+            <option value="50">50x50</option>
+        </select>
+        <button id="confirmNewProject">Start</button>
+
+
+
+    </div>
+
+    <!--Code Popups-->
+<!-- Save Code Popup -->
+<div id="savecode-popup" class="popup" style="display:none;">
+    <textarea id="codeinput" rows="10" cols="50"></textarea>
+    <button id="copycode">Copy Code</button>
+    <button id="close-save-popup">Close</button>
+</div>
+
+<!-- Open Code Popup -->
+<div id="opencode-popup" class="popup" style="display:none;">
+    <textarea id="opencodeinput" rows="10" cols="50"></textarea>
+    <button id="uploadcode">Upload Code</button>
+    <button id="close-open-popup">Close</button>
+</div>
+
+
+
+</div>
+
+<div style="height: 22px; width: 260px; margin: 0 auto; color: rgb(220, 220, 220); margin-bottom: 8px; margin-top: -25px;
+display: flex; align-items: center;">
+    <svg style="margin-left: 2px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" id="copyright" viewBox="0 0 16 16">
+    <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.146 4.992c-1.212 0-1.927.92-1.927 2.502v1.06c0 1.571.703 2.462 1.927 2.462.979 0 1.641-.586 1.729-1.418h1.295v.093c-.1 1.448-1.354 2.467-3.03 2.467-2.091 0-3.269-1.336-3.269-3.603V7.482c0-2.261 1.201-3.638 3.27-3.638 1.681 0 2.935 1.054 3.029 2.572v.088H9.875c-.088-.879-.768-1.512-1.729-1.512"/>
+    </svg>
+
+<span style="margin-left: 5px;"> 2024 Wise Ape. All rights reserved. </span>
+</div>
+
+</div>
+
+
+
+
+<script src="pixelsketch.js">
+
+
+
+
+    </script>
+</body>
+</html>
